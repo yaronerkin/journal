@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<title>Yaron's Journal</title>
+<div id="myDiv"></div>
+<link type="text/css" rel="stylesheet" href="stylesheet4.css">
+<body>
+
+<script type="text/javascript">
+
+console.log("Yaron's Journal");
+console.log(`%c_______
+
+                                  ,,▄▄█▄,                                       
+                                ╓██▓█▓████,                                     
+                             ,▓█████████████                                    
+                          ,▓█████████████████▌                                  
+                         ▓█████████████████████╕                                
+                       ▄███████████████████████▓╕                               
+                     ▄███████████████████████████                               
+                    ████████████▓█▓███████████████                              
+                    ███████▀▀▀╙╙╙╙╙╙▀▀▀█▓██████████                             
+                    █████╩╙▀▀#╦,         ,╙██████▓█                             
+                   ▐███╬╩φ▒#▓▄φ.ε        ╙╙╙╬╣████▓                             
+                   ████▒░╚╚░╙░░░╠  .░"Γ╚█▀%▒░╚╠████                             
+                   ╚█║█╬░      φ▒  !∩  '   └  ╠████b                            
+                     ▒█▒░     ]╬▒  ¡≥         ║▒╙██                             
+                       ╬▒     ╙░▒φ≥ε;        ░╠"░╙                              
+                     Φ▓▓▒░ .≤ Γ'            ¡φ▓#"                               
+                       ╙╬▒  «φφ▒╦╓≥,       ;φ╣╬Γ                                
+                        ╫▒░░░╙╙░░░╙╚╚"    ░φ╩╠                                  
+                        ]▓▒░░            ;φ╙ ░                                  
+                         ║█▒░        U;φφ╜   │                                  
+                         ▒╙▓▓▒≥φφ░,,φφ╩╙      ,                                 
+                         ╬░░░╚░               '▒≥╗,                             
+                   ,╗╖-╗▓╬▒░  Γ░                ]╬╬▓╗-,                         
+                ,╔▓╩╙░░╩╠╬╬░                   ╓▓╬╬╬╬╬▓╬▓╗,                     
+            ,╗▓▓╫║▒░ ░░░░░╠▒░                 φ╬╬╬║╬╬╠╬╣╣╬╢╬▓φ-                 
+         ╓▓▓╬╬╣╣╬╬╣▒ ░░░░░░░░               φ╬╣╣╬╣╬╬╬╠╠╠╬╬╬╣╬╬╬╣▓╦,             
+      ,██▓▓╣▓╣╬╬╬║╣╣▓Q░░░│░░             ╓▓╬╬╬╬╬╬╬╬╣╬╬╠╣╬╣╢╬╬╬╬╬╢╢╣▒╦,          
+      `);
+console.log("Entry 1");
+console.log("I was born in Haifa but grew up most of my life in a suburb near Boston called Needham. I moved to New York for Parsons and have been ever since.");
+console.log("I am in my last semester of college here at Parsons, where I study Communication Design.");
+console.log("My experience in coding is what I've learned in my required courses in communication design, I have some knowledge of Javascript, CSS, and HTML. But I would say that it would be nice to jog in mememory in all three. I tend to forget them pretty quickly.");
+console.log("My experience in coding is what I've learned in my required courses in communication design, I have some knowledge of Javascript, CSS, and HTML. But I would say that it would be nice to jog in mememory in all three. I tend to forget them pretty quickly.");
+console.log("My goal in this class is too feel comfortable enough to where I can make websites without feeling limited to my knowledge of code. I'd like to learn how get more creative with coding. I think i'll have a better answer to this question as our class continues.");
+
+console.log("Interesting link",'https://www.window-swap.com');
+console.log("Entry 2");
+console.log("During the presentation you shared to us",'https://sites.rhizome.org/anthology/form-art.html',"learned about agnostic design and the thinking behind backwards compatible and universal design.");
+console.log("With my own work I am starting to explore AR.js and other aumented reality libraries.Through the process I am starting to undertand the difference between a webapp and a native app and the differences between them");
+console.log("I like the asynchronous content that you show us. It gives us a deeper understandin on what coding is and how it became. Learning about this history and seeing examples helps us apply it to our own work.");
+
+
+
+	function showDateTime() {
+  var myDiv = document.getElementById("myDiv");
+
+  var date = new Date();
+  var dayList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  var monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];
+  var dayName = dayList[date.getDay()];
+  var monthName = monthNames[date.getMonth()];
+  var today = `${dayName}, ${monthName} ${date.getDate()}, ${date.getFullYear()}`;
+
+  var hour = date.getHours();
+  var min = date.getMinutes();
+  var sec = date.getSeconds();
+
+  var time = hour + ":" + min + ":" + sec;
+  myDiv.innerText = `Today is  ${today}. Time is ${time}`;
+}
+setInterval(showDateTime, 1000);
+
+// create canvas element and append it to document body
+var canvas = document.createElement('canvas');
+document.body.appendChild(canvas);
+
+// some hotfixes... ( ≖_≖)
+document.body.style.margin = 0;
+canvas.style.position = 'fixed';
+
+// get canvas 2D context and set him correct size
+var ctx = canvas.getContext('2d');
+resize();
+
+// last known position
+var pos = { x: 0, y: 0 };
+
+window.addEventListener('resize', resize);
+document.addEventListener('mousemove', draw);
+document.addEventListener('mousedown', setPosition);
+document.addEventListener('mouseenter', setPosition);
+
+// new position from mouse event
+function setPosition(e) {
+  pos.x = e.clientX;
+  pos.y = e.clientY;
+}
+
+// resize canvas
+function resize() {
+  ctx.canvas.width = window.innerWidth;
+  ctx.canvas.height = window.innerHeight;
+}
+
+function draw(e) {
+  // mouse left button must be pressed
+  if (e.buttons !== 1) return;
+
+  ctx.beginPath(); // begin
+
+  ctx.lineWidth = 5;
+  ctx.lineCap = 'round';
+  ctx.strokeStyle = '#fffff';
+
+  ctx.moveTo(pos.x, pos.y); // from
+  setPosition(e);
+  ctx.lineTo(pos.x, pos.y); // to
+
+  ctx.stroke(); // draw it!
+}
+
+  // document.body.style.cursor = 'none';
+
+</script>
+<p class="saving">Inspect to read Yaron's journal<span>.</span><span>.</span><span>.</span></p>
+
+<div id="mobile"> Yaron's journal can't be accessed on mobile.</div>
+
+<div class="cursor"></div>
+
+</body>
+
+</html>
