@@ -1,0 +1,78 @@
+p{
+	font-family: helvetica;
+	font-size: 1.4em;
+}
+
+body{
+    cursor:crosshair;
+}
+
+
+#myDiv{
+	position: fixed;
+    bottom: 3%;
+    width: 100%;
+    font-family: helvetica;
+    font-size: 1.4em;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 30px;
+  text-align: left;
+}
+
+.saving {
+  font-size: 1.4em;
+}
+
+.saving span {
+  font-size: 1.4em;
+  animation-name: blink;
+  animation-duration: 1.4s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+.saving span:nth-child(2) {
+  animation-delay: .2s;
+}
+
+.saving span:nth-child(3) {
+  animation-delay: .4s;
+}
+
+@keyframes blink {
+  0% {
+    opacity: .2;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: .2;
+  }
+}
+
+#mobile {
+  	font-family: helvetica;
+	font-size: 1.4em;
+
+}
+
+@media screen and (max-width: 1025px) {
+  p{
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  #mobile{
+    display: none;
+  }
+}
